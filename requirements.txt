@@ -1,0 +1,14 @@
+unstructured
+streamlit
+langchain_community
+langchain
+langchain_groq
+sentence-transformers
+python-dotenv
+langchain-huggingface
+tiktoken
+langchain_pinecone
+pinecone-client
+motor
+pydantic
+cryptography
