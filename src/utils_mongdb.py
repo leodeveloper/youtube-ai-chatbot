@@ -1,3 +1,4 @@
+import streamlit as st
 import os
 import pymongo
 import pandas as pd
@@ -5,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 cloudmongo = os.environ.get("cloudmongodb")
     # Establish a connection to the MongoDB server
-client = pymongo.MongoClient(cloudmongo)
+client = pymongo.MongoClient(**st.secrets["mongo"])
 
 # Select the database and collection
 db = client["Youtube"]
