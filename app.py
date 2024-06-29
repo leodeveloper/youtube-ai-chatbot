@@ -4,7 +4,7 @@ from src.utils_method import get_query_params
 
 
 # Main function to run the app
-def main():
+def main() -> None:
     st.title("Query String Example")
     query_params = get_query_params()
     
