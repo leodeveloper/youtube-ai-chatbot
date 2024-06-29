@@ -12,3 +12,5 @@ pinecone-client
 motor
 pydantic
 cryptography
+pymongo
+pandas
