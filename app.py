@@ -1,12 +1,24 @@
 import streamlit as st
 from src.utils_method import get_query_params
 from src.utils_mongdb import fetch_paginated_results
+from datetime import datetime
 
-
+# Add custom CSS to limit the title to two lines
+st.markdown("""
+    <style>
+    .truncate-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Main function to run the app
 def main() -> None:
-    youtubechannelname="60MinutesYouTube"
+    youtubechannelname="ZeeshanUsmaniYouTube"
     st.title("Query String Example")
     query_params = get_query_params()
     
@@ -33,12 +45,13 @@ def main() -> None:
     for idx, doc in enumerate(results):
         col = cols[idx % len(cols)]
         with col:
-            st.image(doc['thumbnail_url'], use_column_width=True)
-            st.subheader(doc['title'])
-            st.write(f"Author: {doc['author']}")
-            st.write(f"Published on: {doc['publish_date']}")
-            st.write(f"Views: {doc['view_count']}")
-            st.write(f"Description: {doc['description']}")
+            print(doc)
+            st.image(doc['thumbnail'], use_column_width=True)
+            st.write(f"<div class='truncate-title'>{doc['title']}</div>", unsafe_allow_html=True)
+            #st.write(f"Author: {doc['author']}")
+            st.write(f"Published on: {doc['publish_date']} - <a href='https://youtubetranslate.streamlit.app/?source={doc['source']}'>Translate</a>", unsafe_allow_html=True)
+            #st.write(f"Views: {doc['view_count']}")
+            #st.write(f"Description: {doc['description']}")
 
     # Add navigation buttons
     col1, col2, col3 = st.columns(3)
