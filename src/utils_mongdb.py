@@ -42,6 +42,7 @@ def fetch_paginated_results(collection, page_size, page_number):
                 'thumbnail': '$thumbnail',
                 'publish_date': '$publish_date',
                 'source': '$source',
+                'youtubelink':'$youtubelink'
             },
             'count': {'$sum': 1}
         }
@@ -53,6 +54,7 @@ def fetch_paginated_results(collection, page_size, page_number):
             'thumbnail': '$_id.thumbnail',
             'publish_date': '$_id.publish_date',
             'source': '$_id.source',
+            'youtubelink':'$_id.youtubelink',
             'count': 1
         }
     },
