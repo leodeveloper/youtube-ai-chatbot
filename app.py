@@ -32,8 +32,14 @@ def main() -> None:
             question = st.text_input("Please write a question here", placeholder="write question here")
             if question:
                 with st.spinner("please wait....."):
-                    answer = get_answer(question)
+                    answer,sourcedocs = get_answer(question)
                     st.write(answer)
+                    if sourcedocs:
+                        for sourcedoc in sourcedocs:
+                            st.write(sourcedoc.metadata['title'])
+                            st.write(sourcedoc.metadata['youtube_url'])
+                            st.image(sourcedoc.metadata['thumbnail'],width=50,use_column_width=True)
+                            st.write(sourcedoc.metadata['publish_date'])
             
             st.caption("Question answer powered by Groq Api")
             # Parameters for pagination
@@ -42,7 +48,6 @@ def main() -> None:
             searchvideo = st.sidebar.text_input("Search video")
             if searchvideo:
                 page_number=1
-                pageNumber=1
             # Fetch paginated results
             results,total_count = fetch_paginated_results(youtubechannelname,page_size, page_number,searchvideo)
             st.info(f"Total videos {total_count}, Page {page_number}")
