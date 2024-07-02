@@ -32,7 +32,7 @@ def main() -> None:
             question = st.text_input("Please write a question here", placeholder="write question here")
             if question:
                 with st.spinner("please wait....."):
-                    answer,sourcedocs = get_answer(question)
+                    answer,sourcedocs = get_answer(question,f"Youtube.{youtubechannelname}")
                     st.write(answer)
                     if sourcedocs:
                         for sourcedoc in sourcedocs:

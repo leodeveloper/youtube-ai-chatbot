@@ -9,13 +9,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-import pprint
-
-
-mongonconnet=os.getenv('mongodb')
+import pprint 
 
 os.environ['GROQ_API_KEY']=os.getenv('GROQ_API_KEY')
-llm = ChatGroq(temperature=0.7,model="llama3-70b-8192")
+llm = ChatGroq(temperature=0,model="llama3-70b-8192")
 #If you don't know the answer, just say that you don't know, don't try to make up an answer.
 prompt_template = """You are a helpful assistant. Use the provided context to answer the question at the end. Prioritize the answers based on the most recent publish date.
 
@@ -34,13 +31,12 @@ def is_json(myjson):
         return None
     return validjson
 
-def get_answer(question)-> str:
+def get_answer(question, namespace)-> str:
     try:
-        print(question)
-        client = pymongo.MongoClient(**st.secrets["mongo"])
+        mongoconnection=st.secrets["mongofull"]
         embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L12-v2")
-        docsearch=MongoDBAtlasVectorSearch.from_connection_string(mongonconnet,
-                                                                  "Youtube.ZeeshanUsmaniYouTube",embedding_function,index_name="ZeeshanUsmani_Vector_Index")
+        docsearch=MongoDBAtlasVectorSearch.from_connection_string(mongoconnection['fullconnection'],
+                                                                  namespace,embedding_function,index_name="ZeeshanUsmani_Vector_Index")
         
         qa_retriever = docsearch.as_retriever(search_type="similarity",search_kwargs={"k": 4
                                                                                       #,"post_filter_pipeline": [{"$limit": 25}]
