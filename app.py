@@ -69,6 +69,7 @@ def main() -> None:
                     st.write(f"Published on: {doc['publish_date']} - <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlen}'>EN</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlur}'>UR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlfr}'>FR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlit}'>IT</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlde}'>DE</a>", unsafe_allow_html=True)
                     #st.write(f"Views: {doc['view_count']}")
                     #st.write(f"Description: {doc['description']}")
+            st.info("All rights are reserved, Contact me on this email leodeveloper@gmail.com")
         else:
             st.error("Please provide a valid channel name")
 
