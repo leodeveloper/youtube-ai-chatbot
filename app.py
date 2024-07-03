@@ -61,10 +61,11 @@ def main() -> None:
                     youtubeurlit=f"https://www.youtube.com/watch?v={doc['source']}&src_lang=hi&target_lang=it"
                     youtubeurlur=f"https://www.youtube.com/watch?v={doc['source']}&src_lang=hi&target_lang=ur"
                     youtubeurlfr=f"https://www.youtube.com/watch?v={doc['source']}&src_lang=hi&target_lang=fr"
+                    youtubeurlde=f"https://www.youtube.com/watch?v={doc['source']}&src_lang=hi&target_lang=de"
                     st.image(doc['thumbnail'], use_column_width=True)
                     st.write(f"<div class='truncate-title'>{doc['title']}</div>", unsafe_allow_html=True)
                     #st.write(f"Author: {doc['author']}")
-                    st.write(f"Published on: {doc['publish_date']} - <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlen}'>EN</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlur}'>UR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlfr}'>FR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlit}'>IT</a>", unsafe_allow_html=True)
+                    st.write(f"Published on: {doc['publish_date']} - <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlen}'>EN</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlur}'>UR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlfr}'>FR</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlit}'>IT</a> <a href='https://leodeveloper2000-youtubetranslationapi.hf.space/generate/?youtubeurl={youtubeurlde}'>DE</a>", unsafe_allow_html=True)
                     #st.write(f"Views: {doc['view_count']}")
                     #st.write(f"Description: {doc['description']}")
         else:
