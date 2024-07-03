@@ -41,11 +41,12 @@ def main() -> None:
                             st.image(sourcedoc.metadata['thumbnail'],width=50,use_column_width=True)
                             st.write(sourcedoc.metadata['publish_date'])
             
-            st.caption("Question answer powered by Groq Api")
+            st.caption("Question answer powered by Groq Api, any suggestion feel free to write at leodeveloper@gmail.com")
             # Parameters for pagination
             page_size = st.sidebar.number_input("Page Size", min_value=1, max_value=10, value=6)
             page_number = st.sidebar.number_input("Page Number", min_value=1, value=1,key="pageNumber")
             searchvideo = st.sidebar.text_input("Search video")
+            st.sidebar.info("Any suggestion feel free to write at leodeveloper@gmail.com or message me on linkedIn https://www.linkedin.com/in/sulemanmuhammad/ ")
             if searchvideo:
                 page_number=1
             # Fetch paginated results
