@@ -25,6 +25,11 @@ def fetch_paginated_results(collection, page_size, page_number, title):
 
     pipeline.extend([
         {
+        '$match': {
+            'title': {'$ne': 'None'}
+        }
+    },
+        {
             "$group": {
                 "_id": {
                     'title': '$title',
